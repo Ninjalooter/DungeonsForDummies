@@ -1,0 +1,8 @@
+## Interface: 40000
+## Title: Ninjalooter Instanz Addon
+## Author: Imke
+## Version: 1.0
+## Notes: Zul-Instanzen rocken!
+
+Ninjalooter_Instanz_Addon.xml
+deDE.lua

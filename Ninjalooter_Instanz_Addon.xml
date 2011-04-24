@@ -1,0 +1,103 @@
+<Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:nl="http://www.ninjalooter.de/xmlns" 
+    xmlns="http://www.blizzard.com/wow/ui">
+  <Script file="Ninjalooter_Instanz_Addon.lua" />
+  <Frame name="Frame1" parent="UIParent" toplevel="true" movable="true" enableMouse="true">
+	<TitleRegion>
+		<Size x="180" y="150"/>
+		<Anchors><Anchor point="TOP"/></Anchors>
+	</TitleRegion>
+	 
+	<Size>
+		<AbsDimension x="180" y="150" />
+	</Size>
+	<Anchors>
+		<Anchor point="CENTER" />
+	</Anchors>
+	<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" title="true">
+		<BackgroundInsets>
+			<AbsInset left="11" right="12" top="12" bottom="11" />
+		</BackgroundInsets>
+		<EdgeSize>
+			<AbsValue val="32" />
+		</EdgeSize>
+	</Backdrop>
+	<Frames>
+		<Button name="DropDownMenuButton" inherits="UIDropDownMenuTemplate">
+		   <Anchors><Anchor point="TOP"><Offset x="-57" y="-15" /></Anchor></Anchors>
+		   <Scripts>
+				<OnShow>
+					DropDownMenuButton_OnShow();
+				</OnShow>
+				<OnLoad>
+				   UIDropDownMenu_Initialize(self, DropDownMenu_OnLoad);
+			   </OnLoad>
+			   <OnClick>
+				   DropDownMenuButton_OnClick();
+			   </OnClick>
+		   </Scripts>
+	   </Button>
+	   
+		<Button name="Button1" inherits="UIPanelButtonTemplate" text="Bosstaktik">
+			<Size>
+				<AbsDimension x="120" y="23" />
+			</Size>
+			<Anchors>
+				<Anchor point="TOP">
+					<Offset x="0" y="-45" />
+				</Anchor>
+			</Anchors>
+			<Scripts>
+				<OnClick>NL_WriteDescription("GUIDE");</OnClick>
+			</Scripts>
+		</Button>
+		<Button name="Button2" inherits="UIPanelButtonTemplate" text="Erfolge">
+			<Size>
+				<AbsDimension x="120" y="23" />
+			</Size>
+			<Anchors>
+				<Anchor point="Center">
+					<Offset x="0" y="-15" />
+				</Anchor>
+			</Anchors>
+			<Scripts>
+				<OnClick>NL_WriteDescription("ACHIEVEMENTS");</OnClick>
+			</Scripts>
+		</Button>
+		<Button name="Button3" inherits="UIPanelButtonTemplate" text="Loot">
+			<Size>
+				<AbsDimension x="120" y="23" />
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOM">
+					<Offset x="0" y="15" />
+				</Anchor>
+			</Anchors>
+			<Scripts>
+				<OnClick>NL_WriteDescription("LOOT");</OnClick>
+			</Scripts>
+		</Button>
+		
+	</Frames>
+	<Scripts>
+		<OnLoad>NL_Init();</OnLoad>
+	</Scripts>
+	<!--
+	<Layers>
+		<Layer level="OVERLAY">
+			<FontString name="Targetname" inherits="GameFontNormal" text="blubbi">
+				<Size>
+					<AbsDimension x="80" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOP">
+						<Offset x="0" y="-15"/>
+					</Anchor>
+				</Anchors>
+			</FontString>
+		</Layer>
+	</Layers>
+	-->
+  </Frame>
+</Ui>
