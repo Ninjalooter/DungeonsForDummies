@@ -1,6 +1,16 @@
--- bla bla bla
+-- Main file for Ninjalooter_Instanz_Addon
+-- 
+
+-- 
+-- Should be set with the npcId when the Frame is shown.
 NL_currentNpcId = nil;
 
+-- 
+-- Writes the description for the selected npc (@see NL_currentNpcId)
+-- to the chat. When >5 members are in the group, it writes to the raid
+-- chat, for 1-5 it uses the party chat and else the /say.
+--
+-- The @param type can either be "LOOT", "ACHIEVEMENTS" or "GUIDE".
 function NL_WriteDescription(type)
 	local npcid = NL_currentNpcId;
 	local name = bosses_names[npcid];
@@ -32,6 +42,8 @@ function NL_WriteDescription(type)
 	end
 end
 
+-- Checks whether the current targeted unit is supported.
+-- Supported means we have some infos for this boss.
 function NL_IsTargetSupportedBoss()
 	local uname, realm = UnitName("target")
 	if uname == nil then
@@ -44,14 +56,18 @@ function NL_IsTargetSupportedBoss()
 		return false, nil
 	end
 
-	--DEFAULT_CHAT_FRAME:AddMessage("Name: "..uname.." guid: "..guid .. " NPC-ID: " .. npcid);
-
 	if bosses_names[npcid] == nil then
 		return false, nil
 	else
 		return true, npcid
 	end
 end
+
+-- OnEvent handler for "PLAYER_TARGET_CHANGED". 
+-- Shows/Hides the frame depending whether the 
+-- current target is supported.
+--
+-- @see NL_IsTargetSupportedBoss()
 function NL_OnEvent(self, event,...)
 	--DEFAULT_CHAT_FRAME:AddMessage("OnEvent: " .. event);
 	if event == "PLAYER_TARGET_CHANGED" then
@@ -80,31 +96,10 @@ function NL_Init()
 	DEFAULT_CHAT_FRAME:AddMessage("Besucht uns auf http://www.ninjalooter.de");
 end
 
+-- TODO: Move into init() and remove the extra frame? (test first!)
 local frame = CreateFrame("frame")
 frame:RegisterEvent("PLAYER_TARGET_CHANGED");
 frame:SetScript("OnEvent", NL_OnEvent);
-
----------------------------------------- 
--- Copied from http://www.supausweich.kilu.de/dkp/wow%20addons/MizusRaidTracker-v0.25-Beta/MizusRaidTracker/MizusRaidTracker.lua
-
--- GetNPCID - returns the NPCID or nil, if GUID was no NPC
-function NL_GetNPCID(GUID)
-    local first3 = tonumber("0x"..strsub(GUID, 3, 5));
-    local unitType = bit.band(first3, 0x007);
-    if ((unitType == 0x003) or (unitType == 0x005)) then
-        local _, _, _, uiVersion = GetBuildInfo();
-        if (uiVersion < 40000) then
-            -- WoW client previous to 4.0.1 (China)
-            return tonumber("0x"..strsub(GUID, 9, 12));
-        else
-            -- WoW client 4.0.x (rest of the world)
-            return tonumber("0x"..strsub(GUID, 7, 10));
-        end
-    else
-        return nil;
-    end
-end
-
 
 ---------------------------------------- 
 -- Copied from RobBossMods.lua
