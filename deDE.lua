@@ -1,9 +1,12 @@
+-- German Umlaute
+-- ==============
 -- ae = \195\164
 -- ue = \195\188
 -- oe = \195\182
 -- ss = \195\159
 
 -- Schlachtzugsymbole
+-- ==================
 -- {rt1} = Stern
 -- {rt2} = Kreis
 -- {rt3} = Diamant
@@ -13,6 +16,12 @@
 -- {rt7} = Kreuz
 -- {rt8} = Totensch\195\164del
 --
+
+-- Makros
+-- ======
+-- SPELL(<id>)
+-- ACHIEVEMENT(<id>)
+-- ITEM(<id>)
 
 bosses_names = {
 		[2955] = "Ebenenschreiter - Mulgore",
