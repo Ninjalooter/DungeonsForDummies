@@ -1,8 +1,8 @@
 ## Interface: 40000
 ## Title: Ninjalooter Instanz Addon
-## Author: Imke
+## Author: Imke und Stephan von http://ninjalooter.de/
 ## Version: 1.0
-## Notes: Zul-Instanzen rocken!
+## Notes: Boss-Erklärungen mit Loot-Listen für die zwei neuen Zul-Instanzen in Patch 4.1
 
 Ninjalooter_Instanz_Addon.xml
 deDE.lua
