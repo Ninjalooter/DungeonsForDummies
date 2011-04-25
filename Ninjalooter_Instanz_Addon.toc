@@ -5,5 +5,6 @@
 ## Notes: Boss-Erklärungen mit Loot-Listen für die zwei neuen Zul-Instanzen in Patch 4.1
 
 Ninjalooter_Instanz_Addon.xml
+Ninjalooter_Instanz_CLI.lua
 MizusRaidTracker.lua
 deDE.lua

@@ -5,12 +5,12 @@
   <Script file="Ninjalooter_Instanz_Addon.lua" />
   <Frame name="Frame1" parent="UIParent" toplevel="true" movable="true" enableMouse="true">
 	<TitleRegion>
-		<Size x="180" y="150"/>
+		<Size x="180" y="180"/>
 		<Anchors><Anchor point="TOP"/></Anchors>
 	</TitleRegion>
 	 
 	<Size>
-		<AbsDimension x="180" y="150" />
+		<AbsDimension x="180" y="180" />
 	</Size>
 	<Anchors>
 		<Anchor point="CENTER" />
@@ -37,15 +37,15 @@
 				   DropDownMenuButton_OnClick();
 			   </OnClick>
 		   </Scripts>
-	   </Button>
+		</Button>
 	   
 		<Button name="Button1" inherits="UIPanelButtonTemplate" text="Bosstaktik">
 			<Size>
 				<AbsDimension x="120" y="23" />
 			</Size>
 			<Anchors>
-				<Anchor point="TOP">
-					<Offset x="0" y="-45" />
+				<Anchor point="CENTER">
+					<Offset x="0" y="35" />
 				</Anchor>
 			</Anchors>
 			<Scripts>
@@ -57,8 +57,8 @@
 				<AbsDimension x="120" y="23" />
 			</Size>
 			<Anchors>
-				<Anchor point="Center">
-					<Offset x="0" y="-15" />
+				<Anchor point="CENTER">
+					<Offset x="0" y="0" />
 				</Anchor>
 			</Anchors>
 			<Scripts>
@@ -70,8 +70,8 @@
 				<AbsDimension x="120" y="23" />
 			</Size>
 			<Anchors>
-				<Anchor point="BOTTOM">
-					<Offset x="0" y="15" />
+				<Anchor point="CENTER">
+					<Offset x="0" y="-35" />
 				</Anchor>
 			</Anchors>
 			<Scripts>
@@ -79,6 +79,17 @@
 			</Scripts>
 		</Button>
 		
+		<CheckButton name="AutoCloseButton" inherits="OptionsCheckButtonTemplate">
+			<Scripts>
+				<OnShow>AutoCloseButton_OnShow();</OnShow>
+				<OnClick>AutoCloseButton_OnClick();</OnClick>
+			</Scripts>
+			<Anchors>
+				<Anchor point="BOTTOM">
+					<Offset x="-50" y="15" />
+				</Anchor>
+			</Anchors>
+		</CheckButton>
 	</Frames>
 	<Scripts>
 		<OnLoad>NL_Init();</OnLoad>

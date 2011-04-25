@@ -1,9 +1,17 @@
 -- Main file for Ninjalooter_Instanz_Addon
 -- 
 
+function NL_debug(msg)
+	DEFAULT_CHAT_FRAME:AddMessage(msg);
+end
+
 -- 
 -- Should be set with the npcId when the Frame is shown.
 NL_currentNpcId = nil;
+
+--
+-- Should the Frame be automatically closed, when the target is lost?
+NL_AutoCloseFrame = false;
 
 --
 -- Initializes the addon.
@@ -11,6 +19,7 @@ function NL_Init()
 	-- Print a welcome message
 	DEFAULT_CHAT_FRAME:AddMessage("Viel Spa\195\159 mit dem Ninjalooter Instanz Addon!");
 	DEFAULT_CHAT_FRAME:AddMessage("Besucht uns auf |cFFFFD700http://www.ninjalooter.de|r");
+	DEFAULT_CHAT_FRAME:AddMessage("Benutzt /ninjaguide oder /ng um den Guide jederzeit zu \195\182ffnen.");
 	
 	Frame1:Hide() -- Hide the frame initally
 	Frame1:RegisterEvent("PLAYER_TARGET_CHANGED") -- Register for target changes
@@ -86,22 +95,28 @@ end
 --
 -- @see NL_IsTargetSupportedBoss()
 function NL_OnEvent(self, event,...)
-	--DEFAULT_CHAT_FRAME:AddMessage("OnEvent: " .. event);
+	--NL_debug("OnEvent: " .. event);
 	if event == "PLAYER_TARGET_CHANGED" then
-		
-		local success, npcid = NL_IsTargetSupportedBoss();
-		
-		--if npcid == nil then
-		--	DEFAULT_CHAT_FRAME:AddMessage("NPC is nil!");
-		--end
- 		
-		if success then
-			-- UIDropDownMenu_SetText(DropDownMenuButton, bosses_names[npcid]);
-			NL_currentNpcId = npcid;
+		if Frame1:IsVisible() then
+			local success, npcid = NL_IsTargetSupportedBoss();
+			if success then
+				NL_currentNpcId = npcid;
+				Frame1:Hide();
+				Frame1:Show();
+			else
+				if NL_AutoCloseFrame then
+					Frame1:Hide()
+				end
+			end
+		else 
+			local success, npcid = NL_IsTargetSupportedBoss();
 			
-			Frame1:Show(); 
-		else
-			Frame1:Hide();
+			if success then
+				-- UIDropDownMenu_SetText(DropDownMenuButton, bosses_names[npcid]);
+				NL_currentNpcId = npcid;
+				NL_AutoCloseFrame = true; -- AutoClose the frame, when we lose the target
+				Frame1:Show(); 
+			end
 		end
 	end
 end
@@ -153,24 +168,38 @@ function NL_ParseKey(text, key, handler)
 end
 
 ------------------------------------------------------------------------------------------------------------------
-
+function AutoCloseButton_OnShow()
+	AutoCloseButton:SetChecked(NL_AutoCloseFrame);	
+	AutoCloseButtonText:SetText("Automatisch verstecken");
+end
+function AutoCloseButton_OnClick()
+	NL_debug("AutoCloseButton:OnClick");
+	NL_AutoCloseFrame = not NL_AutoCloseFrame;
+	AutoCloseButton:SetChecked(NL_AutoCloseFrame);
+	
+	if NL_AutoCloseFrame and not NL_IsTargetSupportedBoss() then
+		NL_debug("Verstecke Fenster weil autoClose=yes and targetIsBoss=yes");
+		Frame1:Hide();
+	end
+end
+------------------------------------------------------------------------------------------------------------------
 function DropDownMenuButton_OnShow()
-	DEFAULT_CHAT_FRAME:AddMessage("DDB OnShow");
+	NL_debug("DDB OnShow");
 	if not (NL_currentNpcId == nil) then
-		DEFAULT_CHAT_FRAME:AddMessage("DDB OnShow " .. NL_currentNpcId);
+		NL_debug("DDB OnShow " .. NL_currentNpcId);
 		UIDropDownMenu_SetText(DropDownMenuButton, bosses_names[NL_currentNpcId]);
 	end
 end
 
 function DropDownMenuItem_OnClick(self, id, clicked)
-	DEFAULT_CHAT_FRAME:AddMessage("CLICKED on " .. id .. "!!!!!!!!!!!!!!!!!!!!!!!!");
+	NL_debug("CLICKED on " .. id .. "!!!!!!!!!!!!!!!!!!!!!!!!");
 	NL_currentNpcId = id;
 	
 	DropDownMenuButton_OnShow();
 end
 
 function DropDownMenu_OnLoad()
-	DEFAULT_CHAT_FRAME:AddMessage("DDB Init");
+	NL_debug("DDB Init");
 	
 	for index,text in pairs(bosses_names)
 	do
@@ -183,8 +212,6 @@ function DropDownMenu_OnLoad()
 		-- Add the above information to the options menu as a button.
 		UIDropDownMenu_AddButton(info);	
 	end
-	
-	
  end
    
 function DropDownMenuButton_OnClick() 
