@@ -1,15 +1,11 @@
 -- Main file for Ninjalooter_Instanz_Addon
 -- 
 
-function NL_debug(msg)
-	DEFAULT_CHAT_FRAME:AddMessage(msg);
-end
-
--- 
+-- --
 -- Should be set with the npcId when the Frame is shown.
 NL_currentNpcId = nil;
 
---
+-- --
 -- Should the Frame be automatically closed, when the target is lost?
 NL_AutoCloseFrame = false;
 
@@ -120,52 +116,6 @@ function NL_OnEvent(self, event,...)
 	end
 end
 
-
----------------------------------------- 
--- Copied from RobBossMods.lua
-function NL_parseSpellID(text)
-	return NL_ParseKey(text, "SPELL", GetSpellLink);
-end
-
--- Copied & Modified from RobBossMods' parseSpellId
-function NL_ParseAchievementID(text)
-	return NL_ParseKey(text, "ACHIEVEMENT", GetAchievementLink);
-end
-
-function NL_ParseItemID(text)
-	return NL_ParseKey(text, "ITEM", NL_ParseItemCallback);
-end
-
-function NL_ParseItemCallback(id)
-	local sName, sLink, iRarity, iLevel, iMinLevel, sType, sSubType, iStackCount = GetItemInfo(id);
-	if sLink == nil then
-		return "ITEM__(" + id + ")"
-	end
-	return sLink;
-end
-
-function NL_ParseKey(text, key, handler) 
-	local s = text:find(key)
-	if s == nil then
-		return text
-	end
-	local e = text:find(")",s)
-	local temps = text:sub(s,e)
-	local id = tonumber(temps:match("%d+"))
-	
-	---
-	local s2 = text:find(key,e)
-	if s2 == nil then
-		if e+1 > #text then
-			return text:sub(1,s-1)..handler(id)
-		else
-			return text:sub(1,s-1)..handler(id)..text:sub(e+1)
-		end
-	else
-		--rekursion
-		return text:sub(1,s-1)..handler(id)..NL_ParseKey(text:sub(e+1), key, handler)
-	end
-end
 ------------------------------------------------------------------------------------------------------------------
 function AutoCloseButton_OnShow()
 	AutoCloseButton:SetChecked(NL_AutoCloseFrame);	

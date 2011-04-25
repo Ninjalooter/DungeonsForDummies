@@ -6,5 +6,7 @@
 
 Ninjalooter_Instanz_Addon.xml
 Ninjalooter_Instanz_CLI.lua
+Ninjalooter_Instanz_Utils.lua
+
 MizusRaidTracker.lua
 deDE.lua
