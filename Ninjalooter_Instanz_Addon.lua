@@ -92,14 +92,12 @@ end
 function NL_Init()
 	Frame1:Hide() -- Hide the frame initally
 	
-	DEFAULT_CHAT_FRAME:AddMessage("Viel Spaﬂ mit dem Ninjalooter Instanz Addon!");
-	DEFAULT_CHAT_FRAME:AddMessage("Besucht uns auf http://www.ninjalooter.de");
+	DEFAULT_CHAT_FRAME:AddMessage("Viel Spa\195\159 mit dem Ninjalooter Instanz Addon!");
+	DEFAULT_CHAT_FRAME:AddMessage("Besucht uns auf |cFFFFD700http://www.ninjalooter.de|r");
+	
+	Frame1:RegisterEvent("PLAYER_TARGET_CHANGED")
+	Frame1:SetScript("OnEvent", NL_OnEvent);
 end
-
--- TODO: Move into init() and remove the extra frame? (test first!)
-local frame = CreateFrame("frame")
-frame:RegisterEvent("PLAYER_TARGET_CHANGED");
-frame:SetScript("OnEvent", NL_OnEvent);
 
 ---------------------------------------- 
 -- Copied from RobBossMods.lua
