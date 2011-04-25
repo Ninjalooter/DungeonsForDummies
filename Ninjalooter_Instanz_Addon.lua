@@ -5,10 +5,23 @@
 -- Should be set with the npcId when the Frame is shown.
 NL_currentNpcId = nil;
 
+--
+-- Initializes the addon.
+function NL_Init()
+	-- Print a welcome message
+	DEFAULT_CHAT_FRAME:AddMessage("Viel Spa\195\159 mit dem Ninjalooter Instanz Addon!");
+	DEFAULT_CHAT_FRAME:AddMessage("Besucht uns auf |cFFFFD700http://www.ninjalooter.de|r");
+	
+	Frame1:Hide() -- Hide the frame initally
+	Frame1:RegisterEvent("PLAYER_TARGET_CHANGED") -- Register for target changes
+	Frame1:SetScript("OnEvent", NL_OnEvent);
+end
+
+
 -- 
 -- Writes the description for the selected npc (@see NL_currentNpcId)
--- to the chat. When >5 members are in the group, it writes to the raid
--- chat, for 1-5 it uses the party chat and else the /say.
+-- to the chat. It also descides automatically whether to write to
+-- raid, party or say-chat.
 --
 -- The @param type can either be "LOOT", "ACHIEVEMENTS" or "GUIDE".
 function NL_WriteDescription(type)
@@ -18,11 +31,15 @@ function NL_WriteDescription(type)
 	DEFAULT_CHAT_FRAME:AddMessage("Schreibe Beschreibung fuer " .. name .. " / " .. npcid);
 	
 	local language = GetDefaultLanguage("player");
-	local chatMode = "SAY";
-	if GetNumPartyMembers() > 5 then
+	local chatMode = nil;
+	if GetNumRaidMembers() == 0 then -- Not a raid
+		if GetNumPartyMembers() == 0 then -- No party
+			chatMode = "SAY";
+		else -- Party!!! :D
+			chatMode = "PARTY";
+		end
+	else
 		chatMode = "RAID"
-	elseif GetNumPartyMembers() > 1 then
-		chatMode = "PARTY";
 	end
 	
 	list = nil	;
@@ -87,16 +104,6 @@ function NL_OnEvent(self, event,...)
 			Frame1:Hide();
 		end
 	end
-end
-
-function NL_Init()
-	Frame1:Hide() -- Hide the frame initally
-	
-	DEFAULT_CHAT_FRAME:AddMessage("Viel Spa\195\159 mit dem Ninjalooter Instanz Addon!");
-	DEFAULT_CHAT_FRAME:AddMessage("Besucht uns auf |cFFFFD700http://www.ninjalooter.de|r");
-	
-	Frame1:RegisterEvent("PLAYER_TARGET_CHANGED")
-	Frame1:SetScript("OnEvent", NL_OnEvent);
 end
 
 ---------------------------------------- 
