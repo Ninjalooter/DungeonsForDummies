@@ -26,7 +26,6 @@ function NL_Init()
 	Frame1:SetScript("OnEvent", NL_OnEvent);
 end
 
-
 -- 
 -- Writes the description for the selected npc (@see NL_currentNpcId)
 -- to the chat. It also descides automatically whether to write to
@@ -121,6 +120,7 @@ function NL_OnEvent(self, event,...)
 	end
 end
 
+
 ---------------------------------------- 
 -- Copied from RobBossMods.lua
 function NL_parseSpellID(text)
@@ -166,51 +166,81 @@ function NL_ParseKey(text, key, handler)
 		return text:sub(1,s-1)..handler(id)..NL_ParseKey(text:sub(e+1), key, handler)
 	end
 end
-
 ------------------------------------------------------------------------------------------------------------------
 function AutoCloseButton_OnShow()
 	AutoCloseButton:SetChecked(NL_AutoCloseFrame);	
 	AutoCloseButtonText:SetText("Automatisch verstecken");
 end
 function AutoCloseButton_OnClick()
-	NL_debug("AutoCloseButton:OnClick");
+	-- NL_debug("AutoCloseButton:OnClick");
 	NL_AutoCloseFrame = not NL_AutoCloseFrame;
 	AutoCloseButton:SetChecked(NL_AutoCloseFrame);
 	
 	if NL_AutoCloseFrame and not NL_IsTargetSupportedBoss() then
-		NL_debug("Verstecke Fenster weil autoClose=yes and targetIsBoss=yes");
+		-- NL_debug("Verstecke Fenster weil autoClose=yes and targetIsBoss=yes");
 		Frame1:Hide();
 	end
 end
 ------------------------------------------------------------------------------------------------------------------
 function DropDownMenuButton_OnShow()
-	NL_debug("DDB OnShow");
+	-- NL_debug("DDB OnShow");
 	if not (NL_currentNpcId == nil) then
-		NL_debug("DDB OnShow " .. NL_currentNpcId);
+		-- NL_debug("DDB OnShow " .. NL_currentNpcId);
 		UIDropDownMenu_SetText(DropDownMenuButton, bosses_names[NL_currentNpcId]);
 	end
 end
 
 function DropDownMenuItem_OnClick(self, id, clicked)
-	NL_debug("CLICKED on " .. id .. "!!!!!!!!!!!!!!!!!!!!!!!!");
+	-- NL_debug("Selected NPC " .. bosses_names[id] .. " / " .. id );
 	NL_currentNpcId = id;
 	
 	DropDownMenuButton_OnShow();
 end
 
-function DropDownMenu_OnLoad()
-	NL_debug("DDB Init");
+function DropDownMenu_OnLoad(self, level)
+	-- NL_debug("DDB Init - level " .. level);
+	level = level or 1;
 	
-	for index,text in pairs(bosses_names)
+	local navValue = {};
+	local current = BOSSES_MENU_STRUCTURE;
+	local i = 1;
+	while i < level	do		
+		local key = UIDROPDOWNMENU_MENU_VALUE[i];
+		navValue[i] = key;
+		current = current[key];
+		i = i + 1;
+	end
+	
+	for key,value in pairs(current)
 	do
-		local info      = {};
-		info.text       = text;
-		info.arg1      = index;
-		info.func       = DropDownMenuItem_OnClick;
-		info.checked 	= (not (NL_currentNpcId == nil) and index == NL_currentNpcId);
-
+		local info      = UIDropDownMenu_CreateInfo();
+		-- Generate the menuitem depending on the type (either the npcid or an array for the submenu)
+		if type(value) == "number" then -- We reached the end of the navigation => Show the boss
+			-- key is a generic number, the index
+			-- value is the npcid
+			info.text 		= bosses_names[value];
+			info.arg1       = value;
+			info.func       = DropDownMenuItem_OnClick;
+			info.checked    = (not (NL_currentNpcId == nil) and (value == NL_currentNpcId));
+		else
+			-- key is the text for the SubMenu
+			-- value is the subMenu itself
+			local copy = {};
+			for j,x in ipairs(navValue) do copy[j] = x end
+			copy[level] = key;
+			
+			info.text       = key;
+			info.value      = copy;
+			-- info.func       = DropDownMenuItem_OnClick;
+			-- info.checked 	= (not (NL_currentNpcId == nil) and index == NL_currentNpcId);
+			info.hasArrow   = true;
+			info.notCheckable = true;
+			info.keepShownOnClick  = true;
+		end
+		-- NL_debug("Adding entry " .. info.text);
+		
 		-- Add the above information to the options menu as a button.
-		UIDropDownMenu_AddButton(info);	
+		UIDropDownMenu_AddButton(info, level);	
 	end
  end
    

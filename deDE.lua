@@ -24,24 +24,49 @@
 -- ITEM(<id>)
 
 bosses_names = {
-		[2955] = "Ebenenschreiter - Mulgore",
+		[2955] = "Ebenenschreiter",
 		-- Zul'Aman
-		[23574] = "Akil'zon - Zul'Aman",
-		[23576] = "Nalorakk - Zul'Aman",
-		[23578] = "Jan'alai - Zul'Aman",
-		[23577] = "Halazzi - Zul'Aman",
-		[24239] = "Hexlord Malacrass - Zul'Aman",
-		[23863] = "Daakara - Zul'Aman",
+		[23574] = "Akil'zon",
+		[23576] = "Nalorakk",
+		[23578] = "Jan'alai",
+		[23577] = "Halazzi",
+		[24239] = "Hexlord Malacrass",
+		[23863] = "Daakara",
 		-- Zul'Gurub
-		[52155] = "Hohepriester Venoxis - Zul'Gurub",
-		[52151] = "Blutf\195\188rst Mandokir - Zul'Gurub",
-		[52286] = "Wushoolay Hort des Wahnsinns - Zul'Gurub",
-		[52269] = "Renataki Hort des Wahnsinns - Zul'Gurub",
-		[52258] = "Gri'lek Hort des Wahnsinns - Zul'Gurub",
-		[52271] = "Hazza'rah Hort des Wahnsinns - Zul'Gurub",
-		[52059] = "Hohepriesterin Kilnara - Zul'Gurub",
-		[52053] = "Zanzil - Zul'Gurub",
-		[52148] = "Jin'do - Zul'Gurub",
+		[52155] = "Hohepriester Venoxis",
+		[52151] = "Blutf\195\188rst",
+		[52286] = "Wushoolay",
+		[52269] = "Renataki",
+		[52258] = "Gri'lek",
+		[52271] = "Hazza'rah",
+		[52059] = "Hohepriesterin Kilnara",
+		[52053] = "Zanzil",
+		[52148] = "Jin'do",
+};
+
+BOSSES_MENU_STRUCTURE = {
+	["Mulgore"] = {2955},
+	["Zul'Aman"] = {
+		23574,
+		23576,
+		23578,
+		23577,
+		24239,
+		23863
+	},
+	["Zul'Gurub"] = {
+		52155,
+		52151,
+		["Hort des Wahnsinns"] = {
+			52286, 
+			52269,
+			52258,
+			52271
+		},
+		52059,
+		52053,
+		52148
+	},
 };
 
 
