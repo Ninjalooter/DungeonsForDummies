@@ -1,4 +1,4 @@
--- Main file for Ninjalooter_Instanz_Addon
+-- Main file for Ninjalooter_DungeonsForDummies
 -- 
 
 -- --
@@ -13,7 +13,7 @@ NL_AutoCloseFrame = false;
 -- Initializes the addon.
 function NL_Init()
 	-- Print a welcome message
-	DEFAULT_CHAT_FRAME:AddMessage("Viel Spa\195\159 mit dem Ninjalooter Instanz Addon!");
+	DEFAULT_CHAT_FRAME:AddMessage("Viel Spa\195\159 mit dem Ninjalooter Addon Dungeons for Dummies!");
 	DEFAULT_CHAT_FRAME:AddMessage("Besucht uns auf |cFFFFD700http://www.ninjalooter.de|r");
 	DEFAULT_CHAT_FRAME:AddMessage("Benutzt /ninjaguide oder /ng um den Guide jederzeit zu \195\182ffnen.");
 	

@@ -2,7 +2,7 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:nl="http://www.ninjalooter.de/xmlns" 
     xmlns="http://www.blizzard.com/wow/ui">
-  <Script file="Ninjalooter_Instanz_Addon.lua" />
+  <Script file="Ninjalooter_DungeonsForDummies.lua" />
   <Frame name="Frame1" parent="UIParent" toplevel="true" movable="true" enableMouse="true">
 	<TitleRegion>
 		<Size x="180" y="180"/>
