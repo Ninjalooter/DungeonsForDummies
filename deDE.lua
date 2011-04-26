@@ -136,7 +136,8 @@ bosses_taktik = {
 
 	[52286] = { -- Wushoolay Hort des Wahnsinns (Zul'Gurub)
 		"Stellt euch mit Abstand zueinander auf, um SPELL(96713) zu entgehen und geht aus der \195\188ber euch schwebenden SPELL(96711) heraus.",
-		"In regelm\195\164\195\159igen Abst\195\164nden verwandelt sich Wushoolay in eine Blitzkugel und st\195\188rmt einen zuf\195\164llig ausgew\195\164hlten Spieler an. Rennt sofort vom Einschlagsort weg, damit ihr nicht von der direkt danach folgenden F\195\164higkeit SPELL(96699) umgenietet werdet.", 
+		"In regelm\195\164\195\159igen Abst\195\164nden verwandelt sich Wushoolay in eine Blitzkugel und st\195\188rmt einen zuf\195\164llig ausgew\195\164hlten Spieler an.",
+		"Rennt sofort vom Einschlagsort weg, damit ihr nicht von der direkt danach folgenden F\195\164higkeit SPELL(96699) umgenietet werdet.", 
 	},
 	[52269] = { -- Renataki Hort des Wahnsinns (Zul'Gurub)
 		"Weicht Renatakis SPELL(96646) aus, um nicht unn\195\182tig Schaden und die fiese Blutung SPELL(96644) zu kassieren.",
@@ -188,7 +189,9 @@ bosses_loot = {
 	[23578] = {"ITEM(69559), ITEM(69560), ITEM(69561), ITEM(69562), ITEM(69563)"},
 	[23577] = {"ITEM(69564), ITEM(69565), ITEM(69566), ITEM(69567), ITEM(69568)"},
 	[24239] = {"ITEM(69569), ITEM(69570), ITEM(69571), ITEM(69572), ITEM(69573)"},
-	[23863] = {"ITEM(69574), ITEM(69575), ITEM(69576), ITEM(69577), ITEM(69578), ITEM(69579), ITEM(69580), ITEM(69581), ITEM(69582), ITEM(69583)"},
+	[23863] = {"ITEM(69574), ITEM(69575), ITEM(69576)",
+			   "ITEM(69577), ITEM(69578), ITEM(69579)",
+			   "ITEM(69580), ITEM(69581), ITEM(69582), ITEM(69583)"},
 	-- Zul'Gurub
 	[52155] = {"ITEM(69600), ITEM(69601), ITEM(69602), ITEM(69603), ITEM(69604)"},
 	[52151] = {"ITEM(69605), ITEM(69606), ITEM(69607), ITEM(69608), ITEM(69609)"},
