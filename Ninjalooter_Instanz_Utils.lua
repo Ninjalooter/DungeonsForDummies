@@ -32,10 +32,10 @@ function NL_ParseItemID(text)
 	return NL_ParseKey(text, "ITEM", NL_ParseItemCallback);
 end
 
-local function NL_ParseItemCallback(id)
+function NL_ParseItemCallback(id)
 	local sName, sLink, iRarity, iLevel, iMinLevel, sType, sSubType, iStackCount = GetItemInfo(id);
 	if sLink == nil then
-		return "ITEM_UNKNOWN(" + id + ")"
+		return "ITEM_UNKNOWN(" + id + ")";
 	end
 	return sLink;
 end
