@@ -119,7 +119,7 @@ end
 ------------------------------------------------------------------------------------------------------------------
 function AutoCloseButton_OnShow()
 	AutoCloseButton:SetChecked(NL_AutoCloseFrame);	
-	AutoCloseButtonText:SetText("Automatisch verstecken");
+	AutoCloseButtonText:SetText("Automatisch|nschlie\195\159en");
 end
 function AutoCloseButton_OnClick()
 	-- NL_debug("AutoCloseButton:OnClick");

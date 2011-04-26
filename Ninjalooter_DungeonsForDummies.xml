@@ -5,12 +5,12 @@
   <Script file="Ninjalooter_DungeonsForDummies.lua" />
   <Frame name="Frame1" parent="UIParent" toplevel="true" movable="true" enableMouse="true">
 	<TitleRegion>
-		<Size x="180" y="180"/>
+		<Size x="170" y="180"/>
 		<Anchors><Anchor point="TOP"/></Anchors>
 	</TitleRegion>
 	 
 	<Size>
-		<AbsDimension x="180" y="180" />
+		<AbsDimension x="170" y="180" />
 	</Size>
 	<Anchors>
 		<Anchor point="CENTER" />
@@ -25,7 +25,7 @@
 	</Backdrop>
 	<Frames>
 		<Button name="DropDownMenuButton" inherits="UIDropDownMenuTemplate">
-		   <Anchors><Anchor point="TOP"><Offset x="-57" y="-15" /></Anchor></Anchors>
+		   <Anchors><Anchor point="TOP"><Offset x="-60" y="-15" /></Anchor></Anchors>
 		   <Scripts>
 				<OnShow>
 					DropDownMenuButton_OnShow();
@@ -41,11 +41,11 @@
 	   
 		<Button name="Button1" inherits="UIPanelButtonTemplate" text="Bosstaktik">
 			<Size>
-				<AbsDimension x="120" y="23" />
+				<AbsDimension x="140" y="23" />
 			</Size>
 			<Anchors>
 				<Anchor point="CENTER">
-					<Offset x="0" y="35" />
+					<Offset x="0" y="30" />
 				</Anchor>
 			</Anchors>
 			<Scripts>
@@ -54,7 +54,7 @@
 		</Button>
 		<Button name="Button2" inherits="UIPanelButtonTemplate" text="Erfolge">
 			<Size>
-				<AbsDimension x="120" y="23" />
+				<AbsDimension x="140" y="23" />
 			</Size>
 			<Anchors>
 				<Anchor point="CENTER">
@@ -67,11 +67,11 @@
 		</Button>
 		<Button name="Button3" inherits="UIPanelButtonTemplate" text="Loot">
 			<Size>
-				<AbsDimension x="120" y="23" />
+				<AbsDimension x="140" y="23" />
 			</Size>
 			<Anchors>
 				<Anchor point="CENTER">
-					<Offset x="0" y="-35" />
+					<Offset x="0" y="-30" />
 				</Anchor>
 			</Anchors>
 			<Scripts>
@@ -86,7 +86,7 @@
 			</Scripts>
 			<Anchors>
 				<Anchor point="BOTTOM">
-					<Offset x="-50" y="15" />
+					<Offset x="-60" y="15" />
 				</Anchor>
 			</Anchors>
 		</CheckButton>
@@ -94,21 +94,5 @@
 	<Scripts>
 		<OnLoad>NL_Init();</OnLoad>
 	</Scripts>
-	<!--
-	<Layers>
-		<Layer level="OVERLAY">
-			<FontString name="Targetname" inherits="GameFontNormal" text="blubbi">
-				<Size>
-					<AbsDimension x="80" y="20" />
-				</Size>
-				<Anchors>
-					<Anchor point="TOP">
-						<Offset x="0" y="-15"/>
-					</Anchor>
-				</Anchors>
-			</FontString>
-		</Layer>
-	</Layers>
-	-->
   </Frame>
 </Ui>
