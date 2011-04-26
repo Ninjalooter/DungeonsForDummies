@@ -72,29 +72,30 @@ BOSSES_MENU_STRUCTURE = {
 
 bosses_taktik = {
 
-	[2955] = { "Zeile 1", "Zeile 2 ITEM(63274)", "Zeile 3 ACHIEVEMENT(507)", "Zeile 4 {Kreuz} SPELL(75331)"}, -- Ebenenschreiter (Mulgore)
+	[2955] = {"Zeile  TEST", "Zeile 2 ITEM(3300)", "Zeile 3 ACHIEVEMENT(507)"}, -- Ebenenschreiter (Mulgore)
 
 	-- Zul'Aman
 	[23574] = { -- Akil'zon (Zul'Aman)
 		"{rt1}Phase 1: Verteilt stehen, damit SPELL(43661) nicht an mehreren Spielern Schaden verursacht.",
-		"Taucht ein wei\195\159er Adler auf, muss er sofort von allen DDs angegriffen werden, da der entf\195\188hrte Spieler ansonsten an SPELL(97318) stirbt.",
+		"Taucht ein wei\195\159er Adler auf, greift ihn sofort an, da der entf\195\188hrte Spieler ansonsten an SPELL(97318) stirbt.",
+		"TIPP: Auch in den F\195\164ngen des Adlers k\195\182nnt ihr Schaden an ihm machen.",
 		"{rt3}Phase 2: Der von SPELL(43648) betroffene Spieler wird in die Luft katapultiert. Stellt euch sofort unter ihn, in das Auge des Sturms, um dem Gewitter zu entgehen. Steht ihr zu weit weg, sterbt ihr."
 	},
 	[23576] = { -- Nalorakk (Zul'Aman)
 		"{rt1}Phase 1: Der am weitesten vom Boss entfernte Spieler wird angest\195\188rmt und erh\195\164lt den Debuff SPELL(42402).",
-		"Habt ihr den Debuff kassiert, lauft ihr sofort in Nahkampfreichweite Richtung Tank, um nicht ein zweites Mal getroffen zu werden.",
-		"Achtet darauf, dass immer Spieler ohne Debuff vom Boss entfernt stehen und sich Spieler mit Debuff beim Tank positionieren.",
+		"Habt ihr den Debuff, lauft sofort in Nahkampfreichweite Richtung Tank, um nicht ein zweites Mal getroffen zu werden.",
+		"Achtet darauf, dass alle Spieler ohne Debuff vom Boss entfernt stehen und Spieler mit Debuff beim Tank bleiben.",
 		"{rt3}Phase 2: Der Boss verteilt Blutungen, SPELL(42397), SPELL(42395), die vom Heiler gegenheilt werden m\195\188ssen.",
 		"Durch SPELL(42398) werdet ihr regelm\195\164\195\159ig 2 Sekunden vom Zaubern unterbrochen. Versucht also HoTs auf dem Tank aufrecht zu erhalten.",
 	},
 	
 	[23578] = {  -- Jan'alai (Zul'Aman)
-		"{rt1}Phase 1: Weicht dem kegelf\195\182rmig vor einen zuf\195\164llig ausgew\195\164hlten Spieler gespeitem SPELL(43140) und daraus folgenden Lavapf\195\188tzen aus - auch der Tank!",
+		"{rt1}Phase 1: Weicht dem SPELL(43140) und den daraus folgenden Lavapf\195\188tzen aus - auch der Tank!",
 		"Nietet einen der Brutw\195\164chter um und lasst den anderen die Welpen schl\195\188pfen.",
 		"Der Tank krallt sich alle geschl\195\188pften Welpen und die DDs bomben sie weg.",
 		"{rt3}Phase 2: Der Boss teleportiert sich in die Mitte des Altars und verteilt SPELL(42630) auf der gesamten Plattform. Sucht euch eine L\195\188cke, bleibt dort stehen und wartet bis die Kugeln explodieren.",
 		"{rt4}Phase 3: Bei 35% schl\195\188pfen alle noch \195\188brigen Welpen.",
-		"Bei 25% ger\195\164t der Boss in SPELL(44779). Z\195\188ndet in dieser Phase Heldentum/ Kampfrausch/ Zeitkr\195\188mmung und all eure Spezialf\195\164higkeiten.",
+		"Bei 25% ger\195\164t der Boss in SPELL(44779). Z\195\188ndet in dieser Phase Heldentum/ Kampfrausch/ Zeitkr\195\188mmung.",
 	},
 	
 	[23577] = { -- Halazzi (Zul'Aman)
@@ -113,7 +114,7 @@ bosses_taktik = {
 	[23863] = {  -- Daakara (Zul'Aman)
 		"{rt1}Phase 1: Heilt den von SPELL(97639) betroffenen Spieler voll, damit die Blutung verschwindet.",
 		"{rt3} Phase 2 und 3: Jeweils eines von folgenden Tieravataren:",
-		"B\195\164r: Der vom Boss am weitesten entfernt stehende Spieler kassiert den Debuff SPELL(42402) und l\195\164uft danach sofort in Nahkampfreichweite, um nicht ein zweites Mal getroffen zu werden. Wechselt euch mit dem Kassieren des Debuffs ab.",
+		"B\195\164r: Der vom Boss am weitesten entfernt stehende Spieler erh\195\164lt den Debuff SPELL(42402) und l\195\164uft danach sofort in Nahkampfreichweite, um nicht ein zweites Mal getroffen zu werden. Wechselt euch mit dem Kassieren des Debuffs ab.",
 		"Adler: Geht den Wirbelst\195\188rmen aus dem Weg und zerst\195\182rt das Blitzschlagtotem.",
 		"Drachenfalke: Weicht dem Flammenatem und den Lavakreisen aus.",
 		"Luchs: Konzentriert euch auf den gro\195\159en Luchs und z\195\188ndet schadensreduzierende F\195\164higkeiten, solltet ihr von der Blutung betroffen sein.",
@@ -128,9 +129,9 @@ bosses_taktik = {
 	},
 	[52151] = { -- Blutf\195\188rst Mandokir (Zul'Gurub)
 		"Weicht fr\195\188hzeitig Mandokirs SPELL(96740) aus. Die Attacke k\195\188ndigt sich durch r\195\182tlichen Staub am Boden an.",
-		"Wird der Raptor freigelassen, m\195\188ssen sich alle DDs sofort auf das Reittier konzentrieren und es schnell zu Fall bringen. Tut ihr es nicht t\195\182tet er die Geister. TIPP: Nutzt Verlangsamungseffekte!",	
+		"Wird der Raptor freigelassen, muss er so schnell wie m\195\182glich sterben. Tut er es nicht, t\195\182tet er die Geister. TIPP: Nutzt Verlangsamungseffekte!",	
 		"Das SPELL(96684) trifft immer einen zuf\195\164llig ausgew\195\164hlten Spieler und t\195\182tet diesen umgehend. Ihr k\195\182nnt die F\195\164higkeit nicht unterbrechen, hinausz\195\182gern oder aufhalten.",
-		"Seid ihr tot, opfert sich ein Geist f\195\188r euch auf und erweckt euch wieder. Da euch nur 8 Geister, sprich 8 Wiederbelebungen, zur Verf\195\188gung stehen, muss der Boss sp\195\164testens nach dem Aufbrauchen aller Geister sterben.",
+		"Seid ihr tot, opfert sich ein Geist f\195\188r euch auf und belebt euch wieder. Da euch nur 8 Geister, sprich 8 Wiederbelebungen, zur Verf\195\188gung stehen, muss der Boss sp\195\164testens nach dem Aufbrauchen aller Geister sterben.",
 		"ACHTUNG Heiler: Versucht nur den Tank zu heilen. Die TP der DDs lasst ihr so gut es geht au\195\159er Acht, damit sich der Boss durch SPELL(96776) nicht zu stark hochheilt.", 
 	},
 
@@ -156,7 +157,7 @@ bosses_taktik = {
 	[52059] = { -- Hohepriesterin Kilnara (Zul'Gurub)
 		"{rt1}Phase 1: Unterbrecht so h\195\164ufig wie es geht SPELL(96956) und SPELL(96435).",
 		"Habt ihr SPELL(96435) nicht unterbrochen, m\195\188sst ihr au\195\159er Nahkampfreichweite laufen, um keinen Schaden zu erleiden.",
-		"Stellt euch stets hinter die optisch gut sichtbare SPELL(96457), um nicht von ihr \195\188berrollt und get\195\182tet zu werden.",
+		"Stellt euch stets hinter die lilane SPELL(96457), um nicht von ihr \195\188berrollt und get\195\182tet zu werden.",
 		"TANK: Schnapp dir nach und nach eine der vier Panthergruppen und lass die DDs sie t\195\182ten.",
 		"DDs: Hat der Tank eine Panthergruppe gepullt, m\195\188sst ihr diese sofort umnieten. Pr\195\188gelt Kilnaras TP erst auf 50% runter, sobald alle Panther tot sind.",
 		"{rt3}Pjhase 2: Nutzt Cooldown-F\195\164higkeiten wie Heldentum/ Kampfrausch/ Zeitkr\195\188mmung.", 
@@ -175,14 +176,14 @@ bosses_taktik = {
 		"Beginnt der Boss SPELL(97172) zu casten, begebt ihr euch ALLE sofort unter die gr\195\188ne Kuppel – auch der Tank!",
 		"{rt3}Phase 2: Weicht stets den SPELL(97158) auf dem Altarboden aus.",
 		"Alle Spieler, au\195\159er der Tank, stellen sich direkt zu einer der drei Ketten. Teilt euch so auf, dass immer mindestens ein Spieler bei einer Kette steht.",
-		"TANK: Ziehe ein Gurubashi-Geist die Plattform hoch und lass es mit SPELL(97198) einen Spieler anspringen, um damitdas Schild der Ketten zu zerst\195\182ren.",
-		"Sobald ein Schild gesprengt wurde, zerst\195\182ren die DDs die nun freiliegende Kette.", 
+		"TANK: Ziehe ein Gurubashi-Geist die Plattform hoch und lass es mit SPELL(97198) einen Spieler anspringen, um damit das Schild der Ketten zu zerst\195\182ren.",
+		"DDs: Ist ein Schild gesprengt, zerst\195\182rt ihr die freiliegende Kette.",
 	},
 
 };
 	
 bosses_loot = {
-	[2955] = {"LOOOOOOT"},
+	[2955] = {"ITEM(3300)"},
 	-- Zul'Aman
 	[23574] = {"ITEM(69549), ITEM(69550), ITEM(69551), ITEM(69552), ITEM(69553)"},
 	[23576] = {"ITEM(69554), ITEM(69555), ITEM(69556), ITEM(69557), ITEM(69558)"},
@@ -201,18 +202,28 @@ bosses_loot = {
 	[52271] = {"ITEM(52019)"},
 	[52059] = {"ITEM(69610), ITEM(69611), ITEM(69612), ITEM(69613), ITEM(69614)"},
 	[52053] = {"ITEM(69615), ITEM(69616), ITEM(69617), ITEM(69618), ITEM(69619)"},
-	[52148] = {"ITEM(69620), ITEM(69621), ITEM(69622), ITEM(69623), ITEM(69624), ITEM(69625), ITEM(69626), ITEM(69627), ITEM(69628), ITEM(69629)"},
+	[52148] = {"ITEM(69620), ITEM(69621), ITEM(69622)",
+			   "ITEM(69623), ITEM(69624), ITEM(69625)", 
+			   "ITEM(69626), ITEM(69627), ITEM(69628), ITEM(69629)"},
 };
 
 bosses_achievements = {
 	[2955] = {"ERFOLGE"},
 	-- Zul'Aman
+	[23574] = {"Kein Erfolg vorhanden. Allgemein: ACHIEVEMENT(5761)"},
+	[23576] = {"Kein Erfolg vorhanden. Allgemein: ACHIEVEMENT(5761)"},
+	[23578] = {"Kein Erfolg vorhanden. Allgemein: ACHIEVEMENT(5761)"},
 	[23577] = {"ACHIEVEMENT(5750)"},
-	[23574] = {"ACHIEVEMENT(5750)"},
+	[24239] = {"Kein Erfolg vorhanden. Allgemein: ACHIEVEMENT(5761)"},
 	[23863] = {"ACHIEVEMENT(5760)"},
 	-- Zul'Gurub
 	[52155] = {"ACHIEVEMENT(5743)"},
 	[52151] = {"ACHIEVEMENT(5762)"},
+	[52286] = {"Kein Erfolg vorhanden. Allgemein: ACHIEVEMENT(5744)"},
+	[52269] = {"Kein Erfolg vorhanden. Allgemein: ACHIEVEMENT(5744)"},
+	[52258] = {"Kein Erfolg vorhanden. Allgemein: ACHIEVEMENT(5744)"},
+	[52271] = {"Kein Erfolg vorhanden. Allgemein: ACHIEVEMENT(5744)"},
 	[52059] = {"ACHIEVEMENT(5765)"},
+	[52053] = {"Kein Erfolg vorhanden. Allgemein: ACHIEVEMENT(5744)"},
 	[52148] = {"ACHIEVEMENT(5759)"},
 };
