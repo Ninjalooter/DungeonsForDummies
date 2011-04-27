@@ -1,4 +1,8 @@
 ﻿function NL_debug(msg)
+	if true then
+		return
+	end
+	
 	if type(msg) == "nil" then
 		NL_debug("NL_debug(nil)");
 	elseif type(msg) == "string" or type(msg) == "number" then
