@@ -24,7 +24,7 @@
 -- ITEM(<id>)
 
 bosses_names = {
-		[2955] = "Ebenenschreiter",
+		-- Testsubjekt [2955] = "Ebenenschreiter",
 		-- Zul'Aman
 		[23574] = "Akil'zon",
 		[23576] = "Nalorakk",
@@ -45,7 +45,7 @@ bosses_names = {
 };
 
 BOSSES_MENU_STRUCTURE = {
-	["Mulgore"] = {2955},
+	-- Testsubjekt ["Mulgore"] = {2955},
 	["Zul'Aman"] = {
 		23574,
 		23576,
@@ -76,7 +76,7 @@ bosses_taktik = {
 
 	-- Zul'Aman
 	[23574] = { -- Akil'zon (Zul'Aman)
-		"{rt1}Phase 1: Verteilt stehen, damit SPELL(43661) nicht an mehreren Spielern Schaden verursacht.",
+		"{rt1}Phase 1: Verteilt stehen, damit SPELL(97298) nicht an mehreren Spielern Schaden verursacht.",
 		"Taucht ein wei\195\159er Adler auf, greift ihn sofort an, da der entf\195\188hrte Spieler ansonsten an SPELL(97318) stirbt.",
 		"TIPP: Auch in den F\195\164ngen des Adlers k\195\182nnt ihr Schaden an ihm machen.",
 		"{rt3}Phase 2: Der von SPELL(43648) betroffene Spieler wird in die Luft katapultiert. Stellt euch sofort unter ihn, in das Auge des Sturms, um dem Gewitter zu entgehen. Steht ihr zu weit weg, sterbt ihr."
@@ -85,12 +85,12 @@ bosses_taktik = {
 		"{rt1}Phase 1: Der am weitesten vom Boss entfernte Spieler wird angest\195\188rmt und erh\195\164lt den Debuff SPELL(42402).",
 		"Habt ihr den Debuff, lauft sofort in Nahkampfreichweite Richtung Tank, um nicht ein zweites Mal getroffen zu werden.",
 		"Achtet darauf, dass alle Spieler ohne Debuff vom Boss entfernt stehen und Spieler mit Debuff beim Tank bleiben.",
-		"{rt3}Phase 2: Der Boss verteilt Blutungen, SPELL(42397), SPELL(42395), die vom Heiler gegenheilt werden m\195\188ssen.",
+		"{rt3}Phase 2: Der Boss verteilt Blutungen, SPELL(97810), SPELL(97811), die vom Heiler gegenheilt werden m\195\188ssen.",
 		"Durch SPELL(42398) werdet ihr regelm\195\164\195\159ig 2 Sekunden vom Zaubern unterbrochen. Versucht also HoTs auf dem Tank aufrecht zu erhalten.",
 	},
 	
 	[23578] = {  -- Jan'alai (Zul'Aman)
-		"{rt1}Phase 1: Weicht dem SPELL(43140) und den daraus folgenden Lavapf\195\188tzen aus - auch der Tank!",
+		"{rt1}Phase 1: Weicht dem SPELL(97497) und den daraus folgenden Lavapf\195\188tzen aus - auch der Tank!",
 		"Nietet einen der Brutw\195\164chter um und lasst den anderen die Welpen schl\195\188pfen.",
 		"Der Tank krallt sich alle geschl\195\188pften Welpen und die DDs bomben sie weg.",
 		"{rt3}Phase 2: Der Boss teleportiert sich in die Mitte des Altars und verteilt SPELL(42630) auf der gesamten Plattform. Sucht euch eine L\195\188cke, bleibt dort stehen und wartet bis die Kugeln explodieren.",
@@ -101,7 +101,7 @@ bosses_taktik = {
 	[23577] = { -- Halazzi (Zul'Aman)
 		"{rt1}Phase 1: Sobald ein SPELL(97500) auftaucht, zieht der Tank den Boss sofort aus dem gr\195\188nem Heilkreis heraus. Fernk\195\164mpfer stellen sich jedoch hinein, um Mana und TP zu regenerieren.",
 		"{rt3}Phase 2: Konzentriert euch auf den Troll, da der Luchs nicht tankbar ist. Den ausgeteilten Schaden vom Luchs kompensiert ihr durch das Nutzen der noch aus P1 \195\188brig gebliebenen Heilkreise.",
-		"Zerst\195\182rt sofort alle SPELL(43302) und entfernt SPELL(43303) von betroffenen Spielern.",
+		"Zerst\195\182rt sofort alle SPELL(97492) und entfernt SPELL(97490) von betroffenen Spielern.",
 		"{rt4}Phase 3: Ab 25% nutzt Halazzi all seine F\195\164higkeiten aus P1 und P2 auf einen Schlag. Z\195\188ndet hier Spezialf\195\164higkeiten sowie Heldentum/ Kampfrausch/ Zeitkr\195\188mmung.", 
 	},
 	
@@ -142,7 +142,7 @@ bosses_taktik = {
 	},
 	[52269] = { -- Renataki Hort des Wahnsinns (Zul'Gurub)
 		"Weicht Renatakis SPELL(96646) aus, um nicht unn\195\182tig Schaden und die fiese Blutung SPELL(96644) zu kassieren.",
-		"ACHTUNG Heiler: Da der Boss regelm\195\164\195\159ig einem Spieler 100.000 Lebenspunkte abluchst, m\195\188sst ihr die Gruppe stets vollheilen, um Opfer zu vermeiden.", 
+		"ACHTUNG Heiler: Der Boss stiehlt regelm\195\164\195\159ig einem Spieler 90% seiner Lebenspunkte. Heilt ihn schnell wieder hoch, um Opfer zu vermeiden.", 
 	},
 	[52258] = { -- Gri'lek Hort des Wahnsinns (Zul'Gurub)
 		"Werdet Ihr von Gri'lek verfolgt (blauer Pfeil auf eurem Kopf und un\195\188bersehbare Nachricht in der Mitte eures Bildschirms), m\195\188sst ihr sofort von dem Boss weglaufen und euch in Sicherheit bringen.",
@@ -195,12 +195,12 @@ bosses_loot = {
 			   "ITEM(69580), ITEM(69581), ITEM(69582), ITEM(69583)"},
 	-- Zul'Gurub
 	[52155] = {"ITEM(69600), ITEM(69601), ITEM(69602), ITEM(69603), ITEM(69604)"},
-	[52151] = {"ITEM(69605), ITEM(69606), ITEM(69607), ITEM(69608), ITEM(69609)"},
-	[52286] = {"ITEM(52019)"},
-	[52269] = {"ITEM(52019)"},
-	[52258] = {"ITEM(52019)"},
-	[52271] = {"ITEM(52019)"},
-	[52059] = {"ITEM(69610), ITEM(69611), ITEM(69612), ITEM(69613), ITEM(69614)"},
+	[52151] = {"ITEM(69605), ITEM(69606), ITEM(69607), ITEM(69608), ITEM(69609), ITEM(68823)"},
+	[52286] = {"Verschollen im Datenbanknirwana!"},
+	[52269] = {"Verschollen im Datenbanknirwana!"},
+	[52258] = {"Verschollen im Datenbanknirwana!"},
+	[52271] = {"Verschollen im Datenbanknirwana!"},
+	[52059] = {"ITEM(69610), ITEM(69611), ITEM(69612), ITEM(69613), ITEM(69614), ITEM(68824)"},
 	[52053] = {"ITEM(69615), ITEM(69616), ITEM(69617), ITEM(69618), ITEM(69619)"},
 	[52148] = {"ITEM(69620), ITEM(69621), ITEM(69622)",
 			   "ITEM(69623), ITEM(69624), ITEM(69625)", 
