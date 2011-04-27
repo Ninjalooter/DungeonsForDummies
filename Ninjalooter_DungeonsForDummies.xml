@@ -3,14 +3,14 @@
     xmlns:nl="http://www.ninjalooter.de/xmlns" 
     xmlns="http://www.blizzard.com/wow/ui">
   <Script file="Ninjalooter_DungeonsForDummies.lua" />
-  <Frame name="Frame1" parent="UIParent" toplevel="true" movable="true" enableMouse="true">
+  <Frame name="Frame1" strata="DIALOG" parent="UIParent" toplevel="true" movable="true" enableMouse="true">
 	<TitleRegion>
-		<Size x="170" y="180"/>
+		<Size x="170" y="210"/>
 		<Anchors><Anchor point="TOP"/></Anchors>
 	</TitleRegion>
 	 
 	<Size>
-		<AbsDimension x="170" y="180" />
+		<AbsDimension x="170" y="210" />
 	</Size>
 	<Anchors>
 		<Anchor point="CENTER" />
@@ -23,9 +23,35 @@
 			<AbsValue val="32" />
 		</EdgeSize>
 	</Backdrop>
+	<Layers>
+      <Layer level="ARTWORK">
+        <Texture name="DFD_Header"
+          file="Interface\DialogFrame\UI-DialogBox-Header">
+          <Size>
+            <AbsDimension x="200" y="64"/>
+          </Size>
+          <Anchors>
+            <Anchor point="TOP">
+              <Offset>
+                <AbsDimension x="0" y="12"/>
+              </Offset>
+            </Anchor>
+          </Anchors>
+        </Texture>
+        <FontString inherits="GameFontNormal" text="DFD">
+          <Anchors>
+            <Anchor point="TOP" relativeTo="DFD_Header">
+              <Offset>
+                <AbsDimension x="0" y="-13"/>
+              </Offset>
+            </Anchor>
+          </Anchors>
+        </FontString>
+      </Layer>
+    </Layers>
 	<Frames>
 		<Button name="DropDownMenuButton" inherits="UIDropDownMenuTemplate">
-		   <Anchors><Anchor point="TOP"><Offset x="-60" y="-15" /></Anchor></Anchors>
+		   <Anchors><Anchor point="TOP"><Offset x="-60" y="-30" /></Anchor></Anchors>
 		   <Scripts>
 				<OnShow>
 					DropDownMenuButton_OnShow();
