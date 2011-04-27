@@ -12,10 +12,12 @@ NL_AutoCloseFrame = false;
 --
 -- Initializes the addon.
 function NL_Init()
+	local YELLOW = "|cFFFFD700";
+	local RESET = "|r";
 	-- Print a welcome message
 	DEFAULT_CHAT_FRAME:AddMessage("Viel Spa\195\159 mit dem Ninjalooter Addon Dungeons for Dummies!");
-	DEFAULT_CHAT_FRAME:AddMessage("Besucht uns auf |cFFFFD700http://www.ninjalooter.de|r");
-	DEFAULT_CHAT_FRAME:AddMessage("Benutzt /ninjaguide oder /ng um den Guide jederzeit zu \195\182ffnen.");
+	DEFAULT_CHAT_FRAME:AddMessage("Besucht uns auf " .. YELLOW .. "http://www.ninjalooter.de" .. RESET);
+	DEFAULT_CHAT_FRAME:AddMessage("Benutzt " .. YELLOW .. "/dungeonsfordummies" .. RESET .. " oder " .. YELLOW .. "/dfd" .. RESET .. " um den Guide jederzeit zu \195\182ffnen.");
 	
 	Frame1:Hide() -- Hide the frame initally
 	Frame1:RegisterEvent("PLAYER_TARGET_CHANGED") -- Register for target changes
@@ -32,7 +34,7 @@ function NL_WriteDescription(type)
 	local npcid = NL_currentNpcId;
 	local name = bosses_names[npcid];
 	
-	DEFAULT_CHAT_FRAME:AddMessage("Schreibe Beschreibung fuer " .. name .. " / " .. npcid);
+	DEFAULT_CHAT_FRAME:AddMessage("Schreibe Info f\195\188r " .. name .. " (NPC-ID: " .. npcid .. ")");
 	
 	local language = GetDefaultLanguage("player");
 	local chatMode = nil;
@@ -119,7 +121,7 @@ end
 ------------------------------------------------------------------------------------------------------------------
 function AutoCloseButton_OnShow()
 	AutoCloseButton:SetChecked(NL_AutoCloseFrame);	
-	AutoCloseButtonText:SetText("Automatisch verstecken");
+	AutoCloseButtonText:SetText("Automatisch|nschlie\195\159en");
 end
 function AutoCloseButton_OnClick()
 	-- NL_debug("AutoCloseButton:OnClick");
@@ -140,11 +142,13 @@ function DropDownMenuButton_OnShow()
 	end
 end
 
-function DropDownMenuItem_OnClick(self, id, clicked)
+function DropDownMenuItem_OnClick(self, id, arg2, checked)
 	-- NL_debug("Selected NPC " .. bosses_names[id] .. " / " .. id );
 	NL_currentNpcId = id;
 	
 	DropDownMenuButton_OnShow();
+	
+	ToggleDropDownMenu(1, nil, DropDownMenuButton);
 end
 
 function DropDownMenu_OnLoad(self, level)
