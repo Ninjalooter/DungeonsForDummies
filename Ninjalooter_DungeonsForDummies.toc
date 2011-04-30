@@ -6,9 +6,13 @@
 ## Notes-deDE: Boss-Erklaerungen mit Loot-Listen für die zwei neuen Zul-Instanzen in Patch 4.1
 ##
 
+# Locales first
+deDE.lua
+enUS.lua
+
+# Main after
 Ninjalooter_DungeonsForDummies.xml
 DFD_CLI.lua
 DFD_Utils.lua
 
 MizusRaidTracker.lua
-deDE.lua

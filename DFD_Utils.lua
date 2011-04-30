@@ -29,9 +29,8 @@ end
 -- raid, party or say-chat.
 --
 -- The @param type can either be "LOOT", "ACHIEVEMENTS" or "GUIDE".
-function NL_WriteDescription(npcid, type)
-	local name = bosses_names[npcid];
-	
+function NL_WriteDescription(npcid, boss_names, list)
+	local name = boss_names[npcid];
 	DEFAULT_CHAT_FRAME:AddMessage("Schreibe Info f\195\188r " .. name .. " (NPC-ID: " .. npcid .. ")");
 	
 	local language = GetDefaultLanguage("player");
@@ -46,17 +45,6 @@ function NL_WriteDescription(npcid, type)
 		chatMode = "RAID"
 	end
 	
-	list = nil	;
-	if type == "LOOT" then
-		list = bosses_loot;
-	elseif type == "ACHIEVEMENTS" then
-		list = bosses_achievements;
-	elseif type == "GUIDE" then
-		list = bosses_taktik;
-	else
-		return;
-	end
-	
 	for index,text in ipairs(list[npcid]) 
 	do
 		SendChatMessage(NL_AutoLinkText(text), chatMode, language, name);
@@ -65,7 +53,7 @@ end
 
 -- Checks whether the current targeted unit is supported.
 -- Supported means we have some infos for this boss.
-function NL_IsTargetSupportedBoss()
+function NL_IsTargetSupportedBoss(boss_names)
 	local uname, realm = UnitName("target")
 	if uname == nil then
 		return false, nil
@@ -77,7 +65,7 @@ function NL_IsTargetSupportedBoss()
 		return false, nil
 	end
 
-	if bosses_names[npcid] == nil then
+	if boss_names[npcid] == nil then
 		return false, nil
 	else
 		return true, npcid

@@ -3,7 +3,10 @@
     xmlns:nl="http://www.ninjalooter.de/xmlns" 
     xmlns="http://www.blizzard.com/wow/ui">
   <Script file="Ninjalooter_DungeonsForDummies.lua" />
-  <Frame name="NL_DFD_Frame" strata="DIALOG" parent="UIParent" toplevel="true" movable="true" enableMouse="true">
+  <Frame name="NL_DFD_Frame" strata="DIALOG" parent="UIParent" toplevel="true" movable="true" enableMouse="true" hidden="true">
+	<Scripts>
+		<OnLoad>DFD_Frame_Init();</OnLoad>
+	</Scripts>  
 	<TitleRegion>
 		<Size x="170" y="210"/>
 		<Anchors><Anchor point="TOP"/></Anchors>
@@ -56,16 +59,13 @@
 				<OnShow>
 					DropDownMenuButton_OnShow();
 				</OnShow>
-				<OnLoad>
-				   UIDropDownMenu_Initialize(self, DropDownMenu_OnLoad);
-			   </OnLoad>
 			   <OnClick>
 				   DropDownMenuButton_OnClick();
 			   </OnClick>
 		   </Scripts>
 		</Button>
 	   
-		<Button name="Button1" inherits="UIPanelButtonTemplate" text="Bosstaktik">
+		<Button name="DFD_Frame_Button1" inherits="UIPanelButtonTemplate" text="L18N_GUIDE">
 			<Size>
 				<AbsDimension x="140" y="23" />
 			</Size>
@@ -78,7 +78,7 @@
 				<OnClick>DFD_Frame_PrintGuide("GUIDE");</OnClick>
 			</Scripts>
 		</Button>
-		<Button name="Button2" inherits="UIPanelButtonTemplate" text="Erfolge">
+		<Button name="DFD_Frame_Button2" inherits="UIPanelButtonTemplate" text="L18N_ACHIEVEMENTS">
 			<Size>
 				<AbsDimension x="140" y="23" />
 			</Size>
@@ -91,7 +91,7 @@
 				<OnClick>DFD_Frame_PrintGuide("ACHIEVEMENTS");</OnClick>
 			</Scripts>
 		</Button>
-		<Button name="Button3" inherits="UIPanelButtonTemplate" text="Loot">
+		<Button name="DFD_Frame_Button3" inherits="UIPanelButtonTemplate" text="L18N_LOOT">
 			<Size>
 				<AbsDimension x="140" y="23" />
 			</Size>
@@ -117,8 +117,5 @@
 			</Anchors>
 		</CheckButton>
 	</Frames>
-	<Scripts>
-		<OnLoad>DFD_Frame_Init();</OnLoad>
-	</Scripts>
   </Frame>
 </Ui>
