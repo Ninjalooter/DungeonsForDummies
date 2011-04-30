@@ -15,7 +15,7 @@ local NL_AutoCloseFrame = false;
 
 --
 -- Initializes the addon.
-function NL_Init()
+function DFD_Frame_Init()
 	local YELLOW = "|cFFFFD700";
 	local RESET = "|r";
 	-- Print a welcome message
@@ -24,84 +24,32 @@ function NL_Init()
 	DEFAULT_CHAT_FRAME:AddMessage("Benutzt " .. YELLOW .. "/dungeonsfordummies" .. RESET .. " oder " .. YELLOW .. "/dfd" .. RESET .. " um den Guide jederzeit zu \195\182ffnen.");
 	
 	DFD_Frame_Hide() -- Hide the frame initally
-	NL_DFD_Frame:RegisterEvent("PLAYER_TARGET_CHANGED") -- Register for target changes
-	NL_DFD_Frame:SetScript("OnEvent", NL_OnEvent);
+	NL_DFD_Frame:RegisterEvent("PLAYER_TARGET_CHANGED"); -- Register for target changes
+	NL_DFD_Frame:RegisterEvent("PLAYER_REGEN_DISABLED");
+	NL_DFD_Frame:SetScript("OnEvent", DFD_Frame_OnEvent);
 end
 
 function DFD_Frame_Hide()
-	NL_DFD_Frame:Hide()
+	NL_DFD_Frame:Hide();
 end
 
 function DFD_Frame_Show(autoClose)
-	autoClose = autoClose or true;
+    if autoClose == nil then
+        autoClose = true;
+    end
 	
 	NL_AutoCloseFrame = autoClose;
-	NL_DFD_Frame:Show()
+	NL_DFD_Frame:Show();
 end
 
-function DFD_Frame_IsVisible
-	return NL_DFD_Frame:IsVisible()
-end
--- 
--- Writes the description for the selected npc (@see NL_currentNpcId)
--- to the chat. It also descides automatically whether to write to
--- raid, party or say-chat.
---
--- The @param type can either be "LOOT", "ACHIEVEMENTS" or "GUIDE".
-function NL_WriteDescription(type)
-	local npcid = NL_currentNpcId;
-	local name = bosses_names[npcid];
-	
-	DEFAULT_CHAT_FRAME:AddMessage("Schreibe Info f\195\188r " .. name .. " (NPC-ID: " .. npcid .. ")");
-	
-	local language = GetDefaultLanguage("player");
-	local chatMode = nil;
-	if GetNumRaidMembers() == 0 then -- Not a raid
-		if GetNumPartyMembers() == 0 then -- No party
-			chatMode = "SAY";
-		else -- Party!!! :D
-			chatMode = "PARTY";
-		end
-	else
-		chatMode = "RAID"
-	end
-	
-	list = nil	;
-	if type == "LOOT" then
-		list = bosses_loot;
-	elseif type == "ACHIEVEMENTS" then
-		list = bosses_achievements;
-	elseif type == "GUIDE" then
-		list = bosses_taktik;
-	else
-		return;
-	end
-	
-	for index,text in ipairs(list[npcid]) 
-	do
-		SendChatMessage(NL_ParseItemID(NL_ParseAchievementID(NL_parseSpellID(text))), chatMode, language, name);
-	end
+function DFD_Frame_IsVisible()
+	return NL_DFD_Frame:IsVisible();
 end
 
--- Checks whether the current targeted unit is supported.
--- Supported means we have some infos for this boss.
-function NL_IsTargetSupportedBoss()
-	local uname, realm = UnitName("target")
-	if uname == nil then
-		return false, nil
-	end
-	local guid = UnitGUID("target");
-	local npcid = NL_GetNPCID(guid);
-
-	if npcid == nil then
-		return false, nil
-	end
-
-	if bosses_names[npcid] == nil then
-		return false, nil
-	else
-		return true, npcid
-	end
+-- Writes the guide for the currently selected boss
+-- using {@see NL_WriteDescription()}.
+function DFD_Frame_PrintGuide(type)
+    NL_WriteDescription(NL_currentNpcId, type);
 end
 
 -- OnEvent handler for "PLAYER_TARGET_CHANGED". 
@@ -109,10 +57,11 @@ end
 -- current target is supported.
 --
 -- @see NL_IsTargetSupportedBoss()
-function NL_OnEvent(self, event,...)
+function DFD_Frame_OnEvent(self, event,...)
 	--NL_debug("OnEvent: " .. event);
 	
-	if event == "PLAYER_REGEN_ENABLED" and DFD_AutoHide then -- Combat started
+	if (event == "PLAYER_REGEN_DISABLED" and DFD_AutoHide) then -- Combat started
+	    DEFAULT_CHAT_FRAME:AddMessage("Verstecke DFD-Fenster  wegen Kampfbeginn...");
 		DFD_Frame_Hide();
 	end
 	
@@ -125,7 +74,7 @@ function NL_OnEvent(self, event,...)
 				DFD_Frame_Show(NL_AutoCloseFrame); -- Just reuse the prev. value
 			else
 				if NL_AutoCloseFrame then
-					DFD_Frame_Hide()
+					DFD_Frame_Hide();
 				end
 			end
 		else 

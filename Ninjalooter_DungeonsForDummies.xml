@@ -75,7 +75,7 @@
 				</Anchor>
 			</Anchors>
 			<Scripts>
-				<OnClick>NL_WriteDescription("GUIDE");</OnClick>
+				<OnClick>DFD_Frame_PrintGuide("GUIDE");</OnClick>
 			</Scripts>
 		</Button>
 		<Button name="Button2" inherits="UIPanelButtonTemplate" text="Erfolge">
@@ -88,7 +88,7 @@
 				</Anchor>
 			</Anchors>
 			<Scripts>
-				<OnClick>NL_WriteDescription("ACHIEVEMENTS");</OnClick>
+				<OnClick>DFD_Frame_PrintGuide("ACHIEVEMENTS");</OnClick>
 			</Scripts>
 		</Button>
 		<Button name="Button3" inherits="UIPanelButtonTemplate" text="Loot">
@@ -101,7 +101,7 @@
 				</Anchor>
 			</Anchors>
 			<Scripts>
-				<OnClick>NL_WriteDescription("LOOT");</OnClick>
+				<OnClick>DFD_Frame_PrintGuide("LOOT");</OnClick>
 			</Scripts>
 		</Button>
 		
@@ -118,7 +118,7 @@
 		</CheckButton>
 	</Frames>
 	<Scripts>
-		<OnLoad>NL_Init();</OnLoad>
+		<OnLoad>DFD_Frame_Init();</OnLoad>
 	</Scripts>
   </Frame>
 </Ui>
