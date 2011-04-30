@@ -89,14 +89,14 @@ function NL_GetLocale_deDE()
 		[23574] = { -- Akil'zon (Zul'Aman)
 			"{rt1}Phase 1: Verteilt stehen, damit SPELL(97298) nicht an mehreren Spielern Schaden verursacht.",
 			"Taucht ein wei\195\159er Adler auf, greift ihn sofort an, da der entf\195\188hrte Spieler ansonsten an SPELL(97318) stirbt.",
-			"TIPP: Auch in den F\195\164ngen des Adlers k\195\182nnt ihr Schaden an ihm machen.",
+			"TIPP: Auch in den F\195\164ngen des Adlers k\195\182nnt ihr Schaden an ihm machen sowie euch und eure Gruppe heilen.",
 			"{rt3}Phase 2: Der von SPELL(43648) betroffene Spieler wird in die Luft katapultiert. Stellt euch sofort unter ihn, in das Auge des Sturms, um dem Gewitter zu entgehen. Steht ihr zu weit weg, sterbt ihr."
 		},
 		[23576] = { -- Nalorakk (Zul'Aman)
 			"{rt1}Phase 1: Der am weitesten vom Boss entfernte Spieler wird angest\195\188rmt und erh\195\164lt den Debuff SPELL(42402).",
 			"Habt ihr den Debuff, lauft sofort in Nahkampfreichweite Richtung Tank, um nicht ein zweites Mal getroffen zu werden.",
 			"Achtet darauf, dass alle Spieler ohne Debuff vom Boss entfernt stehen und Spieler mit Debuff beim Tank bleiben.",
-			"{rt3}Phase 2: Der Boss verteilt Blutungen, SPELL(97810), SPELL(97811), die vom Heiler gegenheilt werden m\195\188ssen.",
+			"{rt3}Phase 2: Der Boss verteilt Blutungen, SPELL(97810), SPELL(97811), die vom Heiler gegengeheilt werden m\195\188ssen.",
 			"Durch SPELL(42398) werdet ihr regelm\195\164\195\159ig 2 Sekunden vom Zaubern unterbrochen. Versucht also HoTs auf dem Tank aufrecht zu erhalten.",
 		},
 		
@@ -111,6 +111,7 @@ function NL_GetLocale_deDE()
 		
 		[23577] = { -- Halazzi (Zul'Aman)
 			"{rt1}Phase 1: Sobald ein SPELL(97500) auftaucht, zieht der Tank den Boss sofort aus dem gr\195\188nem Heilkreis heraus. Fernk\195\164mpfer stellen sich jedoch hinein, um Mana und TP zu regenerieren.",
+			"Lasst die Finger von den Wassertotems! Zerst\195\182t sie unter keinen keinen Umst\195\164nden.",
 			"{rt3}Phase 2: Konzentriert euch auf den Troll, da der Luchs nicht tankbar ist. Den ausgeteilten Schaden vom Luchs kompensiert ihr durch das Nutzen der noch aus P1 \195\188brig gebliebenen Heilkreise.",
 			"Zerst\195\182rt sofort alle SPELL(97492) und entfernt SPELL(97490) von betroffenen Spielern.",
 			"{rt4}Phase 3: Ab 25% nutzt Halazzi all seine F\195\164higkeiten aus P1 und P2 auf einen Schlag. Z\195\188ndet hier Spezialf\195\164higkeiten sowie Heldentum/ Kampfrausch/ Zeitkr\195\188mmung.", 
@@ -128,7 +129,7 @@ function NL_GetLocale_deDE()
 			"B\195\164r: Der vom Boss am weitesten entfernt stehende Spieler erh\195\164lt den Debuff SPELL(42402) und l\195\164uft danach sofort in Nahkampfreichweite, um nicht ein zweites Mal getroffen zu werden. Wechselt euch mit dem Kassieren des Debuffs ab.",
 			"Adler: Geht den Wirbelst\195\188rmen aus dem Weg und zerst\195\182rt das Blitzschlagtotem.",
 			"Drachenfalke: Weicht dem Flammenatem und den Lavakreisen aus.",
-			"Luchs: Konzentriert euch auf den gro\195\159en Luchs und z\195\188ndet schadensreduzierende F\195\164higkeiten, solltet ihr von der Blutung betroffen sein.",
+			"Luchs: T\195\182tet zuerst die kleinen Luchse, um den eintreffenden Schaden zu verhindern. Schnappt euch danach Daakara. Z\195\188ndet schadensreduzierende F\195\164higkeiten, solltet ihr von der Blutung betroffen sein.",
 		},
 		
 		-- Zul'Gurub
@@ -178,9 +179,9 @@ function NL_GetLocale_deDE()
 			"Weicht dem auf dem Boden entlanglaufendem, lilanem Arkanstrahl SPELL(96914) aus.",
 			"Befolgt die farblich in der Mitte eures Bildschirms auftauchende Nachricht:",
 			"Gr\195\188n =  SPELL(96338) = JEDER klickt auf den gr\195\188nen Kessel, um sich den Buff SPELL(96328) abzuholen und damit die Phase lebend zu \195\188berstehen.",
-			"Rot = SPELL(96319) = DDs klicken den roten Kessel an, um den Buff SPELL(96326) zu erhalten und damit die vom Tank eingesammelten Zanzili Zombies zu vernichten.",
+			"Rot = SPELL(96319) = Der TANK klickt den roten Kessel an, um den Buff SPELL(96326) zu erhalten und damit die eingesammelten Zanzili Zombies zu vernichten.",
 			"Blau = SPELL(96316) = EIN FERNKAEMPFER klickt auf den blauen Kessel, um den Buff SPELL(96325) zu bekommen und damit den herbeigerufenen Berserker einzufrieren.",
-			"ALLE DDs helfen ihm den Beserker schnell zu vernichten.",
+			"ALLE DDs helfen ihm den Beserker schnell zu vernichten bzw. ihn schnell wieder einzufrieren.",
 		},
 
 		[52148] = {-- Jin'do (Zul'Gurub)
