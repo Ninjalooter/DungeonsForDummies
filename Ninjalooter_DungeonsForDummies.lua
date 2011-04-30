@@ -3,11 +3,11 @@
 
 -- --
 -- Should be set with the npcId when the Frame is shown.
-NL_currentNpcId = nil;
+local NL_currentNpcId = nil;
 
 -- --
 -- Should the Frame be automatically closed, when the target is lost?
-NL_AutoCloseFrame = false;
+local NL_AutoCloseFrame = false;
 
 --
 -- Initializes the addon.
@@ -28,7 +28,10 @@ function DFD_Frame_Hide()
 	NL_DFD_Frame:Hide()
 end
 
-function DFD_Frame_Show()
+function DFD_Frame_Show(autoClose)
+	autoClose = autoClose or true;
+	
+	NL_AutoCloseFrame = autoClose;
 	NL_DFD_Frame:Show()
 end
 
@@ -110,7 +113,7 @@ function NL_OnEvent(self, event,...)
 			if success then
 				NL_currentNpcId = npcid;
 				DFD_Frame_Hide();
-				DFD_Frame_Show();
+				DFD_Frame_Show(NL_AutoCloseFrame); -- Just reuse the prev. value
 			else
 				if NL_AutoCloseFrame then
 					DFD_Frame_Hide()
@@ -122,8 +125,7 @@ function NL_OnEvent(self, event,...)
 			if success then
 				-- UIDropDownMenu_SetText(DropDownMenuButton, bosses_names[npcid]);
 				NL_currentNpcId = npcid;
-				NL_AutoCloseFrame = true; -- AutoClose the frame, when we lose the target
-				DFD_Frame_Show(); 
+				DFD_Frame_Show(true); -- AutoClose the frame, when we lose the target
 			end
 		end
 	end
