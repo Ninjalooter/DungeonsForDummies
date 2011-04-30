@@ -2,6 +2,10 @@
 -- 
 
 -- --
+-- Auto Hide the Frame on combat start
+local DFD_AutoHide = true;
+
+-- --
 -- Should be set with the npcId when the Frame is shown.
 local NL_currentNpcId = nil;
 
@@ -107,6 +111,11 @@ end
 -- @see NL_IsTargetSupportedBoss()
 function NL_OnEvent(self, event,...)
 	--NL_debug("OnEvent: " .. event);
+	
+	if event == "PLAYER_REGEN_ENABLED" and DFD_AutoHide then -- Combat started
+		DFD_Frame_Hide();
+	end
+	
 	if event == "PLAYER_TARGET_CHANGED" then
 		if DFD_Frame_IsVisible() then
 			local success, npcid = NL_IsTargetSupportedBoss();
