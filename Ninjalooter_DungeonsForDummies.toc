@@ -1,4 +1,4 @@
-## Interface: 40000
+## Interface: 40100
 ## Title: Ninjalooter Dungeons for Dummies
 ## Author: Imke und Stephan von http://ninjalooter.de/
 ## Version: 1.0
