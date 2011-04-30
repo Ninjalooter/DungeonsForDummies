@@ -113,8 +113,9 @@ function NL_GetLocale_enUS()
         },
         [23863] = {  -- Daakara (Zul'Aman)
             "{rt1}Phase 1: In order to remove the bleeding effect of SPELL(97639), you have to heal the affected player completely.",
-            "{rt3} Phase 2 und 3: Randomly two of four different avatars:",
-            "Bear: The farthest away player gets hit by Daakara and suffers from SPELL(42402). Players with that debuff stand near boss, players without it stand far away from him. Remove SPELL(43095) from all players.",
+            "{rt3} Phase 2 und 3: Daakara transforms randomly in two of four different avatars:",
+            "Bear: The farthest away player gets hit by Daakara and suffers from SPELL(42402). Players with that debuff stand near boss, players without it stand far away from him.",
+			"Remove SPELL(43095) from all players.",
             "Eagle: Dodge the cyclones and destroy the Lightning Totem.",
             "Dragonhawk: Constantly avoid SPELL(43208) and SPELL(97855).",
             "Lynx: Kill the two adds first to avoid the extra damage on your group. After they are dead concentrate an Daakara.",
@@ -123,7 +124,8 @@ function NL_GetLocale_enUS()
         -- Zul'Gurub
         [52155] = { -- Hohepriester Venoxis (Zul'Gurub)
             "{rt1}Phase 1: Avoid getting hit or walking through the green line of venom SPELL(97338). INFO: It will always take the same path. So look for a save place and keep it in mind for next time.",
-            "Are you linked to another player by SPELL(96475), run away from each other to break the link. But stay away from other party members as the broken link will erupt in a SPELL(97093) which deals AOE damage.",
+            "Are you linked to another player by SPELL(96475), run away from each other to break the link.",
+			"But stay away from other players as the broken link will erupt in a SPELL(97093) which deals AOE damage.",
             "{rt3}Phase 2: Tanks and all other group members need to avoid the SPELL(96509), the summoned SPELL(97104) and all sorts of green pools.",
             "After SPELL(97104), Venoxis will suffer from SPELL(96653), stunning him and making him take 100% mor damage for 10 sec. Use all Cooldowns such as Heroism, Time Warp during this phase.", 
         },

@@ -111,7 +111,7 @@ function NL_GetLocale_deDE()
 		
 		[23577] = { -- Halazzi (Zul'Aman)
 			"{rt1}Phase 1: Sobald ein SPELL(97500) auftaucht, zieht der Tank den Boss sofort aus dem gr\195\188nem Heilkreis heraus. Fernk\195\164mpfer stellen sich jedoch hinein, um Mana und TP zu regenerieren.",
-			"Lasst die Finger von den Wassertotems! Zerst\195\182t sie unter keinen keinen Umst\195\164nden.",
+			"Lasst die Finger von den Wassertotems! Zerst\195\182rt sie unter keinen Umst\195\164nden.",
 			"{rt3}Phase 2: Konzentriert euch auf den Troll, da der Luchs nicht tankbar ist. Den ausgeteilten Schaden vom Luchs kompensiert ihr durch das Nutzen der noch aus P1 \195\188brig gebliebenen Heilkreise.",
 			"Zerst\195\182rt sofort alle SPELL(97492) und entfernt SPELL(97490) von betroffenen Spielern.",
 			"{rt4}Phase 3: Ab 25% nutzt Halazzi all seine F\195\164higkeiten aus P1 und P2 auf einen Schlag. Z\195\188ndet hier Spezialf\195\164higkeiten sowie Heldentum/ Kampfrausch/ Zeitkr\195\188mmung.", 
@@ -129,7 +129,7 @@ function NL_GetLocale_deDE()
 			"B\195\164r: Der vom Boss am weitesten entfernt stehende Spieler erh\195\164lt den Debuff SPELL(42402) und l\195\164uft danach sofort in Nahkampfreichweite, um nicht ein zweites Mal getroffen zu werden. Wechselt euch mit dem Kassieren des Debuffs ab.",
 			"Adler: Geht den Wirbelst\195\188rmen aus dem Weg und zerst\195\182rt das Blitzschlagtotem.",
 			"Drachenfalke: Weicht dem Flammenatem und den Lavakreisen aus.",
-			"Luchs: T\195\182tet zuerst die kleinen Luchse, um den eintreffenden Schaden zu verhindern. Schnappt euch danach Daakara. Z\195\188ndet schadensreduzierende F\195\164higkeiten, solltet ihr von der Blutung betroffen sein.",
+			"Luchs: T\195\182tet zuerst die kleinen Luchse, um den eintreffenden Schaden zu vermindern. Schnappt euch danach Daakara. Z\195\188ndet schadensreduzierende F\195\164higkeiten, solltet ihr von der Blutung betroffen sein.",
 		},
 		
 		-- Zul'Gurub
