@@ -19,11 +19,22 @@ function NL_Init()
 	DEFAULT_CHAT_FRAME:AddMessage("Besucht uns auf " .. YELLOW .. "http://www.ninjalooter.de" .. RESET);
 	DEFAULT_CHAT_FRAME:AddMessage("Benutzt " .. YELLOW .. "/dungeonsfordummies" .. RESET .. " oder " .. YELLOW .. "/dfd" .. RESET .. " um den Guide jederzeit zu \195\182ffnen.");
 	
-	Frame1:Hide() -- Hide the frame initally
-	Frame1:RegisterEvent("PLAYER_TARGET_CHANGED") -- Register for target changes
-	Frame1:SetScript("OnEvent", NL_OnEvent);
+	DFD_Frame_Hide() -- Hide the frame initally
+	NL_DFD_Frame:RegisterEvent("PLAYER_TARGET_CHANGED") -- Register for target changes
+	NL_DFD_Frame:SetScript("OnEvent", NL_OnEvent);
 end
 
+function DFD_Frame_Hide()
+	NL_DFD_Frame:Hide()
+end
+
+function DFD_Frame_Show()
+	NL_DFD_Frame:Show()
+end
+
+function DFD_Frame_IsVisible
+	return NL_DFD_Frame:IsVisible()
+end
 -- 
 -- Writes the description for the selected npc (@see NL_currentNpcId)
 -- to the chat. It also descides automatically whether to write to
@@ -94,15 +105,15 @@ end
 function NL_OnEvent(self, event,...)
 	--NL_debug("OnEvent: " .. event);
 	if event == "PLAYER_TARGET_CHANGED" then
-		if Frame1:IsVisible() then
+		if DFD_Frame_IsVisible() then
 			local success, npcid = NL_IsTargetSupportedBoss();
 			if success then
 				NL_currentNpcId = npcid;
-				Frame1:Hide();
-				Frame1:Show();
+				DFD_Frame_Hide();
+				DFD_Frame_Show();
 			else
 				if NL_AutoCloseFrame then
-					Frame1:Hide()
+					DFD_Frame_Hide()
 				end
 			end
 		else 
@@ -112,7 +123,7 @@ function NL_OnEvent(self, event,...)
 				-- UIDropDownMenu_SetText(DropDownMenuButton, bosses_names[npcid]);
 				NL_currentNpcId = npcid;
 				NL_AutoCloseFrame = true; -- AutoClose the frame, when we lose the target
-				Frame1:Show(); 
+				DFD_Frame_Show(); 
 			end
 		end
 	end
@@ -130,7 +141,7 @@ function AutoCloseButton_OnClick()
 	
 	if NL_AutoCloseFrame and not NL_IsTargetSupportedBoss() then
 		-- NL_debug("Verstecke Fenster weil autoClose=yes and targetIsBoss=yes");
-		Frame1:Hide();
+		DFD_Frame_Hide();
 	end
 end
 ------------------------------------------------------------------------------------------------------------------

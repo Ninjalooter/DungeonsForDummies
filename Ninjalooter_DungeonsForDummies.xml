@@ -3,7 +3,7 @@
     xmlns:nl="http://www.ninjalooter.de/xmlns" 
     xmlns="http://www.blizzard.com/wow/ui">
   <Script file="Ninjalooter_DungeonsForDummies.lua" />
-  <Frame name="Frame1" strata="DIALOG" parent="UIParent" toplevel="true" movable="true" enableMouse="true">
+  <Frame name="NL_DFD_Frame" strata="DIALOG" parent="UIParent" toplevel="true" movable="true" enableMouse="true">
 	<TitleRegion>
 		<Size x="170" y="210"/>
 		<Anchors><Anchor point="TOP"/></Anchors>
