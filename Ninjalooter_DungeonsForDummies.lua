@@ -118,8 +118,10 @@ function DFD_Frame_OnEvent(self, event,...)
 	--NL_debug("OnEvent: " .. event);
 	
 	if (event == "PLAYER_REGEN_DISABLED" and DFD_AutoHide) then -- Combat started
-	    DEFAULT_CHAT_FRAME:AddMessage(L["Verstecke DFD-Fenster (Kampf) ..."]);
-		DFD_Frame_Hide();
+	    if DFD_Frame_IsVisible() then
+	       DEFAULT_CHAT_FRAME:AddMessage(L["Verstecke DFD-Fenster (Kampf) ..."]);
+	       DFD_Frame_Hide();
+	    end
 	end
 	
 	if event == "PLAYER_TARGET_CHANGED" then
