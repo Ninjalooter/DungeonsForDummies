@@ -105,28 +105,38 @@ end
 -- The value between the paranthesis is then passed to the given handler. The searched passage
 -- is then replaced with the return value of the handler.
 --
--- Copied from RobBossMods.lua and later modified.
+-- Originally copied from RobBossMods.lua and later modified.
+-- Later (04.05.2011) replaced by our own implementation due to reserved rights from the owner of RobBossMods.
 function NL_ParseKey(text, key, handler) 
-	local s = text:find(key)
-	if s == nil then
-		return text
+	-- Text is a string
+	-- key is a string
+	-- handler is function which takes one string argument
+	local keywordStartPosition = text:find(key);
+	if keywordStartPosition == nil then
+		return text;
 	end
-	local e = text:find(")",s)
-	local temps = text:sub(s,e)
-	local id = tonumber(temps:match("%d+"))
 	
-	---
-	local s2 = text:find(key,e)
-	if s2 == nil then
-		if e+1 > #text then
-			return text:sub(1,s-1)..handler(id)
-		else
-			return text:sub(1,s-1)..handler(id)..text:sub(e+1)
-		end
-	else
-		--rekursion
-		return text:sub(1,s-1)..handler(id)..NL_ParseKey(text:sub(e+1), key, handler)
+    local idStart = keywordStartPosition + key:len();
+	-- Check if the next char is a '('. If not, abort
+	if not (text:sub(idStart, idStart) == '(') then
+		return text;
 	end
+	
+	
+	local idEnd = text:find(')', idStart);
+	-- No end character found, abort
+	if idEnd == nil then
+		return text;
+	end
+	
+	local id = text:sub(idStart + 1, idEnd - 1) -- Parse the id from KEYWORD(<ID>)
+	local result = handler(id)
+	
+	-- Construct the result
+	local newText = text:sub(1, keywordStartPosition - 1) .. result .. text:sub(idEnd + 1)
+	
+	-- now call it recursivly on the result
+	return NL_ParseKey(newText, key, handler)
 end
 
 ------------------------------------------------------------------------------------------------------------------
