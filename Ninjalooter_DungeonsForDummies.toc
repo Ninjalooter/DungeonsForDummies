@@ -1,9 +1,9 @@
-## Interface: 40100
+## Interface: 40300
 ## Title: Ninjalooter Dungeons for Dummies
 ## Author: Imke und Stephan von http://ninjalooter.de/
-## Version: 1.2.0
-## Notes: Provides short boss guides for the Zul dungeons of patch 4.1
-## Notes-deDE: Boss-Erklaerungen mit Loot-Listen für die zwei neuen Zul-Instanzen in Patch 4.1
+## Version: 1.3.0
+## Notes: Provides short boss guides for the three new dungeons of patch 4.3
+## Notes-deDE: Boss-Erklaerungen für die drei neuen Instanzen in Patch 4.3
 ##
 
 # Locales first
